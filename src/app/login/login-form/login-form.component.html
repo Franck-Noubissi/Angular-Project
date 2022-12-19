@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="email">Email petit con : </label>
+        <input type="email" id="email" formControlName="email">
+    </div>
+    <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+        <div *ngIf="loginForm.controls['email'].errors?.['required']">
+            Mon reuf entre bien ton putain d'email de merde !!!
+        </div>
+    </div>
+    <div *ngIf="loginForm.controls['email'].errors?.['email']">
+        Mon reuf entre bien ton putain d'email de merde !!!
+
+    </div>
+    <div>
+        <label for="password">Password petit con : </label>
+        <input type="password" id="password" formControlName="password" required>
+    </div>
+
+    <button type="submit"[disabled]="!loginForm.valid" >Log in bitch</button>
+    
+</form>

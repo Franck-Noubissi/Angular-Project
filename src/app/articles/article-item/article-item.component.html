@@ -1,1 +1,7 @@
-<p>article-item works!</p>
+<ul>
+    <li *ngFor="let article of articles">
+        <a [routerLink]="">
+            <span>{{ article.name }}</span>
+        </a>
+    </li>
+</ul>
