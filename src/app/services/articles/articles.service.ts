@@ -31,5 +31,5 @@ export class ArticlesService {
   updateArticle(credentials: {id?:string | undefined | null, name?: string | null | undefined, short_description?: string | null | undefined, description?: string | null | undefined, image?: string | null | undefined, created_at?: string | null | undefined}): Observable<Article> {
     const headers = new HttpHeaders().set('apikey', environment.api.key);
     return this.httpClient.patch<Article>(environment.api.url + '?id=eq.' + credentials.id, credentials, {headers: headers})
-}
+  }
 }

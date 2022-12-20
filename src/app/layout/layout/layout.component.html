@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">GamesActu</a>
+      GamesActu
       <button
         class="navbar-toggler"
         type="button"
@@ -21,18 +21,22 @@
             <a class="nav-link active" aria-current="page" routerLink="articles-items">Actus du moment</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" routerLink="back-office">Dashboard Administrateur</a>
           </li>
         </ul>
-        <span class="navbar-text"> 
+        <span class="navbar-text" *ngIf="!userService.getLogin()"> 
             <a routerLink="login">
                 <button type="button" class="btn btn-outline-danger btn-rounded">
                     Connexion
                 </button>
             </a>    
+        </span>
+        <span>
+            <a *ngIf="userService.getLogin()" (click)="logout()">
+                <button type="button" class="btn btn-outline-danger btn-rounded">
+                    Déconnexion
+                </button>
+            </a>
         </span>
       </div>
     </div>

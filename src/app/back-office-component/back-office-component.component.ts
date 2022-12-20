@@ -9,11 +9,6 @@ import { UserService } from '../services/user.service';
 })
 export class BackOfficeComponentComponent {
 
-  constructor (private userService : UserService, private router : Router) {}
-
-  logout() {
-    this.userService.logout()
-    this.router.navigateByUrl('login')
-  }
+  constructor (public userService : UserService, private router : Router) {}
 
 }
