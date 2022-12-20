@@ -1,0 +1,37 @@
+<table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th>Image</th>
+        <th>Titre</th>
+        <th>Short Description</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let article of articles">
+      <tr>
+        <td>
+          <div class="d-flex align-items-center">
+            <img
+                [src]="article.image"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{article.name}}</p> 
+        </td>
+        <td>
+          <span class="badge badge-success rounded-pill d-inline">{{article.short_description}}</span>
+        </td>
+        <td>{{ article.description }}</td>
+        <td>
+          <button type="button" class="btn btn-link btn-sm btn-rounded">
+            <a [routerLink]="['/back-office/modifyArticle',article.id]">Modifier</a>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

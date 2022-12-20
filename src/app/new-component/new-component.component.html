@@ -1,0 +1,44 @@
+<form [formGroup]="FormArticle" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">Titre : </label>
+        <input type="text" id="name" formControlName="name">
+    </div>
+    <div *ngIf="FormArticle.controls['name'].invalid && FormArticle.controls['name'].touched">
+        <div *ngIf="FormArticle.controls['name'].errors?.['required']">
+            
+        </div>
+    </div>
+
+    <div>
+        <label for="short_description">Short Description : </label>
+        <input type="text" id="short_description" formControlName="short_description">
+    </div>
+    <div *ngIf="FormArticle.controls['short_description'].invalid && FormArticle.controls['short_description'].touched">
+        <div *ngIf="FormArticle.controls['short_description'].errors?.['required']">
+            
+        </div>
+    </div>
+
+    <div>
+        <label for="description">Description : </label>
+        <input type="text" id="description" formControlName="description">
+    </div>
+    <div *ngIf="FormArticle.controls['description'].invalid && FormArticle.controls['description'].touched">
+        <div *ngIf="FormArticle.controls['description'].errors?.['required']">
+            
+        </div>
+    </div>
+
+    <div>
+        <label for="image">Image : </label>
+        <input type="text" id="description" formControlName="image">
+    </div>
+    <div *ngIf="FormArticle.controls['image'].invalid && FormArticle.controls['image'].touched">
+        <div *ngIf="FormArticle.controls['image'].errors?.['required']">
+            
+        </div>
+    </div>
+
+    <button type="submit"[disabled]="!FormArticle.valid">Ajouter</button>
+    
+</form>

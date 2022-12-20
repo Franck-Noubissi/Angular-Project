@@ -12,8 +12,26 @@ import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BackOfficeComponentComponent } from './back-office-component/back-office-component.component';
-import * as mdb from 'mdb-ui-kit'; // lib
-import { Input } from 'mdb-ui-kit'; // module
+import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
+import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
+import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { MdbPopoverModule } from 'mdb-angular-ui-kit/popover';
+import { MdbRadioModule } from 'mdb-angular-ui-kit/radio';
+import { MdbRangeModule } from 'mdb-angular-ui-kit/range';
+import { MdbRippleModule } from 'mdb-angular-ui-kit/ripple';
+import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
+import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
+import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
+import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
+import { LayoutComponent } from './layout/layout/layout.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { NewComponentComponent } from './new-component/new-component.component';
+import { ModifyArticleComponent } from './modify-article/modify-article.component';
+
 
 @NgModule({
   declarations: [
@@ -24,13 +42,32 @@ import { Input } from 'mdb-ui-kit'; // module
     InscriptionComponent,
     LoginComponent,
     LoginFormComponent,
-    BackOfficeComponentComponent
+    BackOfficeComponentComponent,
+    LayoutComponent,
+    AdminHomeComponent,
+    NewComponentComponent,
+    ModifyArticleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MdbAccordionModule,
+    MdbCarouselModule,
+    MdbCheckboxModule,
+    MdbCollapseModule,
+    MdbDropdownModule,
+    MdbFormsModule,
+    MdbModalModule,
+    MdbPopoverModule,
+    MdbRadioModule,
+    MdbRangeModule,
+    MdbRippleModule,
+    MdbScrollspyModule,
+    MdbTabsModule,
+    MdbTooltipModule,
+    MdbValidationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

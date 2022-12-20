@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,24 @@ export class UserService {
     return this.httpClient.post(environment.api.urlAuth+'token?grant_type=password', credentials, {"headers": header})
   }
 
+  isLoggedIn() : Observable<boolean> {
+    const header = new HttpHeaders().set("apikey", environment.api.key).set("Authorization", "Bearer " +localStorage.getItem("token"))
+    return this.httpClient.get(
+      environment.api.urlAuth+'user', {headers: header}
+    ).pipe(
+      map(
+        (dataUser) => {
+          return true;
+        }
+      ),
+      catchError(
+        (error : any) => {
+          return of(false);
+        }
+      )
+    )
+  }
+
   setLogin(){
     this.LoggedIn = true
   }
@@ -28,5 +46,9 @@ export class UserService {
   signup(credentials: {email: string, password: string}): Observable<any> {
     const header = new HttpHeaders().set("apikey", environment.api.key)
     return this.httpClient.post(environment.api.urlAuth+'signup', credentials, {"headers": header})
+  }
+
+  logout() {
+    localStorage.removeItem("token")
   }
 }
